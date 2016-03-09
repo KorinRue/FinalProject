@@ -59,6 +59,7 @@ $.getJSON( "geojson/sewer_infrastructure.geojson", function( data ) {
 $.getJSON( "geojson/NYC_neighborhood_data.geojson", function( data ) {
     // ensure jQuery has pulled all data out of the geojson file
     var neighborhoods = data;
+<<<<<<< a7891b7a41e6951dfb1fa2e8ccfe9510e7d23fbc
 /*
 //this didn't work
 var populationStyle = function (feature){
@@ -81,6 +82,30 @@ var populationStyle = function (feature){
     }
     if(value > 150000) { 
         fillColor = "#a50f15";
+=======
+
+//this didn't work
+var PopStyle = function (feature){
+    var value = feature.properties.Pop; //eventually want to make this population density
+    var fillColor = null;
+    if(value >= 0 && value <=5000){
+        fillColor = "#f0f9e8";
+    }
+    if(value >5000 && value <=10000){
+        fillColor = "#ccebc5";
+    }
+    if(value >10000 && value<=50000){
+        fillColor = "#a8ddb5";
+    }
+    if(value > 50000 && value <=1000000){
+        fillColor = "#7bccc4";
+    }
+    if(value > 100000 && value <=150000) { 
+        fillColor = "#43a2ca";
+    }
+    if(value > 150000) { 
+        fillColor = "#0868ac";
+>>>>>>> mistake commit
     }
 
     var style = {
@@ -94,7 +119,11 @@ var populationStyle = function (feature){
     return style;
 }
 
+<<<<<<< a7891b7a41e6951dfb1fa2e8ccfe9510e7d23fbc
 */
+=======
+/*
+>>>>>>> mistake commit
 
 function getColor(d) { //used a leaflet example for this, but its not returning the style I want!
     return  d > 150000 ? '#0868ac' :
@@ -114,9 +143,17 @@ function style(feature) {
         fillOpacity: 0.7
     };
 }
+<<<<<<< a7891b7a41e6951dfb1fa2e8ccfe9510e7d23fbc
 L.geoJson(neighborhoods, {style: style}).addTo(map);
 
 /*
+=======
+
+
+L.geoJson(neighborhoods, {style: style}).addTo(map);
+
+
+>>>>>>> mistake commit
     // plain neighborhood map
     var featureStyle = {
         "color": '#000080',
@@ -131,6 +168,10 @@ L.geoJson(neighborhoods, {style: style}).addTo(map);
     }
 
     neighborhoodsGeoJSON = L.geoJson(neighborhoods, {
+<<<<<<< a7891b7a41e6951dfb1fa2e8ccfe9510e7d23fbc
+=======
+        style: PopStyle,
+>>>>>>> mistake commit
         onEachFeature: neighborhoodClick
     }).addTo(map);
 
@@ -152,7 +193,11 @@ function createLayerControls(){
 
     var overlayMaps = {
         "CSO outfalls": sewerInfrastructureGeoJSON,
+<<<<<<< a7891b7a41e6951dfb1fa2e8ccfe9510e7d23fbc
         "Povery Map": neighborhoodsGeoJSON
+=======
+        "Population": neighborhoodsGeoJSON
+>>>>>>> mistake commit
     };
 
     // add control
